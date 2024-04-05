@@ -22,8 +22,12 @@ public class Cakes implements Serializable {
 	private String size;
 	private Date uploadDate;
 	
+	//constructor
+	public Cakes(){
+		
+	}
 	
-	
+	//Getters and Setters
 	public int getIdCakes() {
 		return idCakes;
 	}
