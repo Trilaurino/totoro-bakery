@@ -14,6 +14,32 @@ public class Ingredients implements Serializable{
 	@Id
 	private int idIngredients;
 	
+	private int ingredientName;
+	
+	//constructor
+	public Ingredients(){
+		
+	}
+	
+	//getters and setters
+
+	public int getIdIngredients() {
+		return idIngredients;
+	}
+
+	public void setIdIngredients(int idIngredients) {
+		this.idIngredients = idIngredients;
+	}
+
+	public int getIngredientName() {
+		return ingredientName;
+	}
+
+	public void setIngredientName(int ingredientName) {
+		this.ingredientName = ingredientName;
+	}
+	
+	
 	
 	
 
