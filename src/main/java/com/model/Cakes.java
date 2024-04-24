@@ -2,6 +2,7 @@ package com.model;
 
 import java.io.Serializable;
 import java.sql.Date;
+import java.util.List;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
@@ -21,11 +22,7 @@ public class Cakes implements Serializable {
 	private String typeOfCake;
 	private String size;
 	private Date uploadDate;
-	
-	//constructor
-	public Cakes(){
-		
-	}
+	private List<String> idIngredients;
 	
 	//Getters and Setters
 	public int getIdCakes() {
@@ -75,7 +72,16 @@ public class Cakes implements Serializable {
 		this.uploadDate = uploadDate;
 	}
 	
-	
-	
+	public List<String> getIdIngredients() {
+		return idIngredients;
+	}
+	public void setIdIngredients(List<String> idIngredients) {
+		this.idIngredients = idIngredients;
+	}
+
+	//constructor
+	public Cakes(){
+		
+	}
 	
 }

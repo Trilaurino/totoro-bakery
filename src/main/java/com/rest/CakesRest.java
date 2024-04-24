@@ -2,6 +2,7 @@ package com.rest;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -12,29 +13,33 @@ import com.dao.CakesRepository;
 import com.model.Cakes;
 
 @RestController
-@RequestMapping("CakesRest")
+@RequestMapping("/api/cakes")
 public class CakesRest {
 	
 	@Autowired
 	private CakesRepository cakesRep;
 	
+	@GetMapping
+	public String allCakes() {
+		return "AHORA FUNCIONO";
+	}
 	
 	////ADD
-	@PostMapping("addCakes")
+	@PostMapping("/add-new-cake")
 	public String addCakes(@RequestBody Cakes cakes){
 		cakesRep.save(cakes);
 		return "CakesAdded";
 	}
 
 	////UPDATE
-	@PutMapping("updateCakes")
+	@PutMapping("/update-cakes")
 	public String updateCakes(@RequestBody Cakes cakes) {
 		cakesRep.save(cakes);
 		return "CakesUpdated";
 	}
 	
 	////DELETE
-	@DeleteMapping("deleteCakes")
+	@DeleteMapping("/delete-cakes")
 	public String deleteCakes(@RequestBody Cakes cakes) {
 		cakesRep.delete(cakes);
 		return "CakesDeleted";
