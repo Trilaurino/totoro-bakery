@@ -1,5 +1,7 @@
 package com.rest;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -13,16 +15,11 @@ import com.dao.CakesRepository;
 import com.model.Cakes;
 
 @RestController
-@RequestMapping("/api/cakes")
+@RequestMapping("/cakes")
 public class CakesRest {
 	
 	@Autowired
 	private CakesRepository cakesRep;
-	
-	@GetMapping
-	public String allCakes() {
-		return "AHORA FUNCIONO";
-	}
 	
 	////ADD
 	@PostMapping("/add-new-cake")
