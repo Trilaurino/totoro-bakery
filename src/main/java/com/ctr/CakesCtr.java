@@ -66,4 +66,14 @@ public class CakesCtr {
 		return("/update-success");
 	}
 	
+	//FIND BY TYPE OF CAKE
+	@GetMapping("/search-type-cakes")
+	public String searchByType(Model model, String typeOfCake) {
+		List<Cakes> cakes = cakesRep.findByTypeOfCake(typeOfCake);
+		model.addAttribute("typeOfCake", cakes);
+		return "/results-type-cakes";
+	}
+	
+	//FIND BY SIZE
+	
 }
