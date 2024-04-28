@@ -19,12 +19,6 @@ public class CakesCtr {
 	@Autowired
 	private CakesRepository cakesRep;
 	
-	@GetMapping("/test-cakes")
-	public String testCAkes() {
-		return "Test Cakes 1235";
-	}
-	
-	
 	@GetMapping("/all-cakes")
 	public String getAllCakes(Model model){
 		List<Cakes> listAllCakes = cakesRep.findAll();
@@ -49,7 +43,7 @@ public class CakesCtr {
 		}else {
 			String errorMessage = "ops!";
 			model.addAttribute("errorMessage", errorMessage);
-			return "error";
+			return "/error";
 		}
 	}
 	
@@ -71,9 +65,40 @@ public class CakesCtr {
 	public String searchByType(Model model, String typeOfCake) {
 		List<Cakes> cakes = cakesRep.findByTypeOfCake(typeOfCake);
 		model.addAttribute("typeOfCake", cakes);
+		if(cakes!= null) {
 		return "/results-type-cakes";
+		}else {
+			String errorMessage = "ops!";
+			model.addAttribute("errorMessage", errorMessage);
+			return "/error";
+		}
 	}
 	
 	//FIND BY SIZE
+	@GetMapping("/search-size-cakes")
+	public String searchBySize(Model model, String size) {
+		List<Cakes> cakes = cakesRep.findBySize(size);
+		model.addAttribute("size", cakes);
+		if(cakes != null) {
+			return ("/results-sizes-cakes");
+		}else {
+			String errorMessage = "ops!";
+			model.addAttribute("errorMessage", errorMessage);
+			return "/error";
+		}
+	}
 	
+	//FIND BY NAME
+	@GetMapping("/search-name-cake")
+	public String searchByName(Model model, String name) {
+		List<Cakes> cakes = cakesRep.findByName(name);
+		model.addAttribute("name", cakes);
+		if(cakes != null) {
+			return ("/results-name-cakes");
+		}else {
+			String errorMessage = "ops!";
+			model.addAttribute("errorMessage", errorMessage);
+			return "/error";
+		}
+	}
 }
