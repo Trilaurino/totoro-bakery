@@ -3,12 +3,15 @@ package com.rest;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.dao.CakesRepository;
@@ -20,6 +23,11 @@ public class CakesRest {
 	
 	@Autowired
 	private CakesRepository cakesRep;
+	
+	@GetMapping("")
+	public List<Cakes> findAllCakes(){
+		return cakesRep.findAll();
+	}
 	
 	////ADD
 	@PostMapping("/add-new-cake")
@@ -41,4 +49,6 @@ public class CakesRest {
 		cakesRep.delete(cakes);
 		return "CakesDeleted";
 	}
+	
+	////FIND BY NAME
 }

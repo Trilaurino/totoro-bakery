@@ -54,7 +54,7 @@ public class CakesCtr {
 		model.addAttribute("idCakes", cakes);
 		return "/update-cakes";
 	}
-	@PatchMapping("update-cakes")
+	@PatchMapping("/update-cakes")
 	public String updateCakes(Model model, Cakes cakes) {
 		cakesRep.save(cakes);
 		return("/update-success");
