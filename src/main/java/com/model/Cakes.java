@@ -20,7 +20,6 @@ public class Cakes implements Serializable {
 	private String name;
 	private int cost;
 	private String typeOfCake;
-	private String size;
 	private Date uploadDate;
 	private List<String> idIngredients;
 	
@@ -54,14 +53,6 @@ public class Cakes implements Serializable {
 	}
 	public void setTypeOfCake(String typeOfCake) {
 		this.typeOfCake = typeOfCake;
-	}
-	
-	
-	public String getSize() {
-		return size;
-	}
-	public void setSize(String size) {
-		this.size = size;
 	}
 	
 	

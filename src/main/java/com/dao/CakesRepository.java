@@ -9,6 +9,5 @@ import com.model.Cakes;
 @Repository
 public interface CakesRepository extends JpaRepository<Cakes, Integer> {
 	List<Cakes> findByTypeOfCake(String typeOfCake);
-	List<Cakes> findBySize(String size);
 	List<Cakes> findByName(String name);
 }
